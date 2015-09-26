@@ -9,15 +9,15 @@ class User < ActiveRecord::Base
   model_stamper
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :invitable, :database_authenticatable, :registerable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :invitable, :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
- def set_stampers
-   User.stamper = self.current_user.email
- end
+  def set_stampers
+    User.stamper = self.current_user.email
+  end
 
- def set_default_role
-   add_role(:moderator)
- end
+  def set_default_role
+    add_role(:moderator)
+  end
 end

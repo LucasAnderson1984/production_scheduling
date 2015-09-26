@@ -1,5 +1,7 @@
 class Role < ActiveRecord::Base
-  has_and_belongs_to_many :users, :join_table => :users_roles
+  has_many :users_roles
+  has_many :users, through: :users_roles
+
   belongs_to :resource, :polymorphic => true
 
   validates :resource_type,
@@ -7,4 +9,10 @@ class Role < ActiveRecord::Base
             :allow_nil => true
 
   scopify
+
+  ROLE_NAMES = %w(
+    admin
+    moderator
+    scheduler
+  )
 end

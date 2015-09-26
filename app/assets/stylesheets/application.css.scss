@@ -1,0 +1,139 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+  */
+
+  @import "bootstrap-sprockets";
+  @import "bootstrap";
+
+  body {
+    background-color: #005479;
+
+    #main {
+      background-color: #fff;
+      margin: 0 auto;
+      min-height: 700px;
+      width: 1200px;
+
+      table {
+        width: 1160px;
+        clear: both;
+        margin: 0 20px;
+
+        td, th {
+          text-align: center;
+          vertical-align: top;
+        }
+
+        th { background: #bdbdbd }
+      }
+
+      .showTable {
+        border: none;
+        display: inline-block;
+        margin: 20px;
+
+        th { text-align: right; }
+
+        td { text-align: left; }
+      }
+
+      #searchTable {
+        width: 500px;
+        border-collapse: collapse;
+
+        td { vertical-align: middle; text-align: left; }
+        input[type='checkbox'] { margin-left: 15px; }
+      }
+
+      h1, h2, h3, h4, {
+        color: #005479;
+        margin: 0;
+        padding: 20px 0 20px 20px;
+        font-weight: bold;
+        clear: both;
+        text-transform: capitalize;
+      }
+
+      .intro {
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .search { width: 200px; padding: 10px; margin: 10px; }
+
+      .pagination { margin: 0 20px; }
+
+      #h1h { padding: 10px 0; }
+
+      .btn-warning {
+        float: right;
+        margin-right: 20px;
+      }
+
+      form {
+        width: 500px;
+        margin: 20px;
+        text-transform: capitalize;
+
+        .btn { text-transform: capitalize; }
+      }
+
+      .alert {
+        clear: both; margin: 0;
+      }
+
+      .actions { margin-left: 20px; }
+
+      .time {
+        width: 32.75%;
+        display: inline-block
+      }
+
+      .out {
+        float: right;
+        margin: 20px 20px 0 0;
+      }
+
+      .field_with_errors {
+        padding: 2px;
+        background-color: red;
+        display: table;
+      }
+
+      #error_explanation {
+        width: 450px;
+        border: 2px solid red;
+        padding: 7px;
+        padding-bottom: 0;
+        margin-bottom: 20px;
+        background-color: #f0f0f0;
+        h2 {
+          text-align: left;
+          font-weight: bold;
+          padding: 5px 5px 5px 15px;
+          font-size: 12px;
+          margin: -7px;
+          margin-bottom: 0;
+          background-color: #c00;
+          color: #fff;
+        }
+        ui li {
+          font-size: 12px;
+          list-style: square;
+        }
+      }
+
+      div.space { display: block; height: 20px; }
+    }
+  }
