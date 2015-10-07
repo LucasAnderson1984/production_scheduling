@@ -17,7 +17,7 @@ RSpec.describe ProductionSchedulesController, type: :controller do
 
     context 'when production schedules are valid' do
       it { is_expected.to respond_with(302) }
-      it { is_expected.to redirect_to(production_schedule_path(ProductionSchedule.last)) }
+      it { is_expected.to redirect_to(production_schedules_url) }
       it { is_expected.to set_flash[:notice] }
     end
 
@@ -38,7 +38,7 @@ RSpec.describe ProductionSchedulesController, type: :controller do
       let(:production_schedule_params) { attributes_for(:production_schedule) }
 
       it { is_expected.to respond_with(302) }
-      it { is_expected.to redirect_to(production_schedule_path(production_schedule.id)) }
+      it { is_expected.to redirect_to(production_schedules_url) }
       it { is_expected.to set_flash[:notice] }
     end
 
@@ -47,6 +47,20 @@ RSpec.describe ProductionSchedulesController, type: :controller do
 
       it { is_expected.to respond_with(200) }
       it { is_expected.to render_template(:edit) }
+    end
+  end
+
+  describe 'DELETE destroy' do
+    before do
+      delete :destroy, id: production_schedule
+    end
+
+    context 'when production schedules are valid' do
+      let(:production_schedule) { create(:production_schedule) }
+
+      it { is_expected.to respond_with(302) }
+      it { is_expected.to redirect_to(production_schedules_url) }
+      it { is_expected.to set_flash[:notice] }
     end
   end
 

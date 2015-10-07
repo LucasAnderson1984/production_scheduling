@@ -1,4 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_production_schedule_path(@production_schedule) %> |
-<%= link_to 'Back', production_schedules_path %>
+<table class="table table-striped table-bordered showTable">
+  <tr>
+    <th>Production Week:</th>
+    <td><%= @production_schedule.production_date.strftime('%m/%d/%Y') %></td>
+  </tr>
+  <tr>
+    <th>Created By:</th>
+    <td><%= @production_schedule.created_by.email %></td>
+  </tr>
+  <tr>
+    <th>Created At:</th>
+    <td><%= @production_schedule.created_at.strftime('%m/%d/%Y') %></td>
+  </tr>
+  <tr>
+    <th>Updated By:</th>
+    <td><%= @production_schedule.updated_by.email %></td>
+  </tr>
+  <tr>
+    <th>Updated At:</th>
+    <td><%= @production_schedule.updated_at.strftime('%m/%d/%Y') %></td>
+  </tr>
+  <tr>
+    <th>Action:</th>
+    <td>
+      <%= link_to 'Edit', edit_production_schedule_path(@production_schedule) %> |
+      <%= link_to 'Back', production_schedules_path %>
+    </td>
+  </tr>
+</table>

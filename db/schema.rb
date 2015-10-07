@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925212927) do
+ActiveRecord::Schema.define(version: 20151002201003) do
 
   create_table "component_shrinkages", force: true do |t|
     t.string   "component_type", limit: 30, null: false
@@ -65,6 +65,32 @@ ActiveRecord::Schema.define(version: 20150925212927) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
+
+  create_table "production_formulas", force: true do |t|
+    t.integer  "master_formula_id",      null: false
+    t.integer  "production_schedule_id", null: false
+    t.integer  "tonnage"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "production_formulas", ["master_formula_id"], name: "index_production_formulas_on_master_formula_id"
+  add_index "production_formulas", ["production_schedule_id"], name: "index_production_formulas_on_production_schedule_id"
+
+  create_table "production_items", force: true do |t|
+    t.integer  "production_formula_id", null: false
+    t.integer  "item_master_id",        null: false
+    t.integer  "quantity"
+    t.integer  "creator_id"
+    t.integer  "updater_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "production_items", ["item_master_id"], name: "index_production_items_on_item_master_id"
+  add_index "production_items", ["production_formula_id"], name: "index_production_items_on_production_formula_id"
 
   create_table "production_schedules", force: true do |t|
     t.datetime "production_date", null: false

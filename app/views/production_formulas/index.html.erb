@@ -1,0 +1,18 @@
+<%= link_to 'Back to Production Schedule', production_schedules_url, class: 'btn btn-info' %>
+<h1>Production Formulas</h1>
+<%= link_to 'New Production Formula', new_production_formula_path(production_schedule_id: params[:production_schedule_id]), class: 'btn btn-warning' %>
+<table class='table table-striped table-bordered'>
+  <thead>
+    <tr>
+      <th>Master Formula</th>
+      <th>Production Schedule</th>
+      <th>Tonnage</th>
+      <th colspan="4">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @production_formulas %>
+  </tbody>
+</table>
+
+<br>

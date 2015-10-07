@@ -1,23 +1,16 @@
-<h1>Listing production_schedules</h1>
+<h1>Production Schedules</h1>
 
-<table>
+<%= link_to 'New Production Schedule', new_production_schedule_path, class: 'btn btn-warning' %>
+
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Production Week</th>
+      <th>Scheduled Tons</th>
+      <th colspan="4">Action</th>
     </tr>
   </thead>
-
   <tbody>
-    <% @production_schedules.each do |production_schedule| %>
-      <tr>
-        <td><%= link_to 'Show', production_schedule %></td>
-        <td><%= link_to 'Edit', edit_production_schedule_path(production_schedule) %></td>
-        <td><%= link_to 'Destroy', production_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @production_schedules %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Production schedule', new_production_schedule_path %>

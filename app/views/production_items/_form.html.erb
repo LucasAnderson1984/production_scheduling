@@ -1,0 +1,13 @@
+<%= simple_form_for(@production_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :production_formula, as: :hidden, input_html: { value: unless params[:production_formula_id] then params[:id] else params[:production_formula_id] end } %>
+    <%= f.association :item_master, collection: ItemMaster.where(master_formula_id: unless params[:production_formula_id] then @production_item.production_formula.master_formula_id else ProductionFormula.find(params[:production_formula_id]).master_formula_id end), label_method: :item_name, value_method: :id, prompt:  "Choose an Item"  %>
+    <%= f.input :quantity %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

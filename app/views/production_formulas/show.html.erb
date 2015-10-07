@@ -1,0 +1,37 @@
+<table class="table table-striped table-bordered showTable">
+  <tr>
+    <th>Master Formula:</th>
+    <td><%= @production_formula.master_formula.formula_name %></td>
+  </tr>
+  <tr>
+    <th>Production Schedule:</th>
+    <td><%= @production_formula.production_schedule.date_format %></td>
+  </tr>
+  <tr>
+    <th>Tonnage:</th>
+    <td><%= number_with_precision(@production_formula.tonnage, precision: 0, delimiter: ',') %></td>
+  </tr>
+  <tr>
+    <th>Created By:</th>
+    <td><%= @production_formula.created_by.email %></td>
+  </tr>
+  <tr>
+    <th>Created At:</th>
+    <td><%= @production_formula.created_at.strftime('%m/%d/%Y') %></td>
+  </tr>
+  <tr>
+    <th>Updated By:</th>
+    <td><%= @production_formula.updated_by.email %></td>
+  </tr>
+  <tr>
+    <th>Updated At:</th>
+    <td><%= @production_formula.updated_at.strftime('%m/%d/%Y') %></td>
+  </tr>
+  <tr>
+    <th>Action:</th>
+    <td>
+      <%= link_to 'Edit', edit_production_formula_path(@production_formula) %> |
+      <%= link_to 'Back', production_formulas_url(production_schedule_id: @production_formula.production_schedule.id) %>
+    </td>
+  </tr>
+</table>

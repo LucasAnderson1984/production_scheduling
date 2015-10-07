@@ -48,14 +48,6 @@
         td { text-align: left; }
       }
 
-      #searchTable {
-        width: 500px;
-        border-collapse: collapse;
-
-        td { vertical-align: middle; text-align: left; }
-        input[type='checkbox'] { margin-left: 15px; }
-      }
-
       h1, h2, h3, h4, {
         color: #005479;
         margin: 0;
@@ -79,6 +71,7 @@
       .btn-warning {
         float: right;
         margin-right: 20px;
+        margin-bottom: 10px;
       }
 
       form {

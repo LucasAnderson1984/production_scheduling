@@ -5,6 +5,7 @@ RSpec.describe ProductionSchedule, type: :model do
 
   it { is_expected.to belong_to(:created_by) }
   it { is_expected.to belong_to(:updated_by) }
+  it { is_expected.to have_many(:production_formulas) }
 
   it { is_expected.to validate_presence_of(:production_date) }
   it { is_expected.to validate_uniqueness_of(:production_date) }

@@ -1,0 +1,6 @@
+<h1>Editing Production Formula</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @production_formula, class: 'actions' %> |
+<%= link_to 'Back', production_formulas_path(production_schedule_id: @production_formula.production_schedule.id) %>

@@ -1,0 +1,13 @@
+<tr>
+  <td><%= production_formula.master_formula.formula_name %></td>
+  <td><%= production_formula.production_schedule.date_format %></td>
+  <td><%= number_with_precision(production_formula.tonnage, precision: 0, delimiter: ',') %></td>
+  <% if production_formula.production_items.count == 0 %>
+    <td><%= link_to 'Add Items', new_production_item_path(production_formula_id: production_formula.id) %></td>
+  <% else %>
+    <td><%= link_to 'Show Items', production_items_url(production_formula_id: production_formula.id) %></td>
+  <% end %>
+  <td><%= link_to 'Show', production_formula %></td>
+  <td><%= link_to 'Edit', edit_production_formula_path(production_formula) %></td>
+  <td><%= link_to 'Destroy', production_formula, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
