@@ -1,6 +1,7 @@
 <tr>
   <td><%= production_item.item_master.item_name %></td>
   <td><%= number_with_precision(production_item.quantity, precision: 0, delimiter: ',') %></td>
+  <td><%= number_with_precision(production_item.tons, precision: 1, delimiter: ',') %></td>
   <td><%= link_to 'Show', production_item %></td>
   <td><%= link_to 'Edit', edit_production_item_path(production_item) %></td>
   <td><%= link_to 'Destroy', production_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

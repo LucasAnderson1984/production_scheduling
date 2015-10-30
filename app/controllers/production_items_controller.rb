@@ -4,7 +4,7 @@ class ProductionItemsController < ApplicationController
   before_action :has_param, only: [:index, :new]
 
   def index
-    @production_items = ProductionItem.all
+    @production_items = ProductionItem.where(production_formula_id: params[:production_formula_id])
   end
 
   def show
@@ -61,7 +61,9 @@ class ProductionItemsController < ApplicationController
     end
 
     def has_param
-      unless params[:production_formula_id]
+      if params[:production_formula_id]
+        @production_formula = ProductionFormula.find(params[:production_formula_id])
+      else
         redirect_to root_path()
       end
     end

@@ -6,4 +6,5 @@ RSpec.describe MasterFormula, type: :model do
   it { is_expected.to have_many(:item_masters) }
   it { is_expected.to have_many(:formula_components) }
   it { is_expected.to have_many(:production_formulas) }
+  it { is_expected.to have_many(:weeks_supplies) }
 end

@@ -4,7 +4,7 @@ class ProductionFormulasController < ApplicationController
   before_action :has_param, only: [:index, :new]
 
   def index
-    @production_formulas = ProductionFormula.all
+    @production_formulas = ProductionFormula.where(production_schedule_id: params[:production_schedule_id])
   end
 
   def show

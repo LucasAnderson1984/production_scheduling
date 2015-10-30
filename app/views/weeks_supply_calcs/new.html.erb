@@ -1,0 +1,15 @@
+<h1>New Production Formula</h1>
+<%= simple_form_for(entry, as: :entry, method: :post) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :production_schedule_id, as: :hidden, input_html: { value: params[:production_schedule_id] } %>
+    <%= f.input :master_formula_id, collection: MasterFormula.ordered, label_method: :formula_name, value_method: :id, prompt:  "Choose a Formula" %>
+    <%= f.input :total_week %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create Production Formula", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<%= link_to 'Back', production_formulas_path(production_schedule_id: params[:production_schedule_id]), class: 'actions' %>

@@ -1,4 +1,4 @@
-<%= link_to 'Back to Production Formula', production_formulas_url(production_schedule_id: 5), class: 'btn btn-info' %>
+<%= link_to 'Back to Production Formula', production_formulas_url(production_schedule_id: @production_formula.production_schedule_id), class: 'btn btn-info' %>
 <h1>Production Items</h1>
 <%= link_to 'New Production Item', new_production_item_path(production_formula_id: params[:production_formula_id]), class: 'btn btn-warning' %>
 <table class='table table-striped table-bordered'>
@@ -6,12 +6,19 @@
     <tr>
       <th>Item Number</th>
       <th>Quantity</th>
+      <th>Tons</th>
       <th colspan="3">Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <%= render @production_items %>
+    <tr>
+      <th>Total</th>
+      <th><%= number_with_precision(@production_items.sum(:quantity), precision: 0, delimiter: ',') %></th>
+      <th><%= number_with_precision(@production_items.inject(0) { |sum, p| sum + p.tons } , precision: 1, delimiter: ',') %></th>
+      <th colspan="3">&nbsp;</th>
+    </tr>
   </tbody>
 </table>
 

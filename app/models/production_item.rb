@@ -7,4 +7,8 @@ class ProductionItem < ActiveRecord::Base
   validates :item_master_id, :production_formula_id, presence: true
   validates :production_formula_id, uniqueness: { scope: :item_master_id }
   validates :quantity, numericality: { only_integer: true }
+
+  def tons
+    quantity * item_master.weight / 2000
+  end
 end

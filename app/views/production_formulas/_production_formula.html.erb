@@ -1,7 +1,7 @@
 <tr>
   <td><%= production_formula.master_formula.formula_name %></td>
   <td><%= production_formula.production_schedule.date_format %></td>
-  <td><%= number_with_precision(production_formula.tonnage, precision: 0, delimiter: ',') %></td>
+  <td><%= number_with_precision(production_formula.tonnage, precision: 1, delimiter: ',') %></td>
   <% if production_formula.production_items.count == 0 %>
     <td><%= link_to 'Add Items', new_production_item_path(production_formula_id: production_formula.id) %></td>
   <% else %>
