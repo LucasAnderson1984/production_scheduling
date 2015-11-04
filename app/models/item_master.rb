@@ -5,4 +5,8 @@ class ItemMaster < ActiveRecord::Base
   def item_name
     item_number + ' - ' + description
   end
+
+  def pallet_quantity
+    pallet_height * cases_per_layer
+  end
 end
