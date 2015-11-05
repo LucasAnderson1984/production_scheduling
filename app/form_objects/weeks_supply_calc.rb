@@ -26,7 +26,7 @@ class WeeksSupplyCalc < FormEntry
 
   def is_unique?
     unless ProductionFormula.where(master_formula_id: self.master_formula_id, production_schedule_id: \
-                                  self.production_schedule_id).count == 0
+                                   self.production_schedule_id).count == 0
       errors.add(:master_formula_id, 'Formula must be unique.')
     end
   end

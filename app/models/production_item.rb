@@ -3,10 +3,11 @@ class ProductionItem < ActiveRecord::Base
   belongs_to :updated_by, class_name: 'User', foreign_key: :updater_id
   belongs_to :production_formula
   belongs_to :item_master
+  has_one    :master_formula, through: :item_master
 
   validates :item_master_id, :production_formula_id, presence: true
-  validates :production_formula_id, uniqueness: { scope: :item_master_id }
-  validates :quantity, numericality: { only_integer: true }
+  validates :item_master_id, uniqueness: { scope: :production_formula_id }
+  validates :quantity, numericality: { greater_than_or_equal_to: 0, only_integer: true }
 
   def tons
     quantity * item_master.weight / 2000

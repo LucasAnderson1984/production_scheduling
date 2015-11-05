@@ -8,4 +8,8 @@ class ProductionFormula < ActiveRecord::Base
   validates :master_formula_id, :production_schedule_id, presence: true
   validates :production_schedule_id, uniqueness: { scope: :master_formula_id }
   validates :tonnage, numericality: { greater_than_or_equal_to: 0, only_integer: true, allow_blank: true }
+
+  def tons
+    production_items.to_a.sum { |item| item.tons }
+  end
 end

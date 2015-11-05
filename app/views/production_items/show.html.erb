@@ -1,33 +1,33 @@
 <table class="table table-striped table-bordered showTable">
   <tr>
     <th>Item Master:</th>
-    <td><%= @production_item.item_master.item_name %></td>
+    <td><%= item.item_master.item_name %></td>
   </tr>
   <tr>
     <th>Quantity:</th>
-    <td><%= number_with_precision(@production_item.quantity, precision: 0, delimiter: ',') %></td>
+    <td><%= number_with_precision(item.quantity, precision: 0, delimiter: ',') %></td>
   </tr>
   <tr>
     <th>Created By:</th>
-    <td><%= @production_item.created_by.email %></td>
+    <td><%= item.created_by.email %></td>
   </tr>
   <tr>
     <th>Created At:</th>
-    <td><%= @production_item.created_at.strftime('%m/%d/%Y') %></td>
+    <td><%= item.created_at.strftime('%m/%d/%Y') %></td>
   </tr>
   <tr>
     <th>Updated By:</th>
-    <td><%= @production_item.updated_by.email %></td>
+    <td><%= item.updated_by.email %></td>
   </tr>
   <tr>
     <th>Updated At:</th>
-    <td><%= @production_item.updated_at.strftime('%m/%d/%Y') %></td>
+    <td><%= item.updated_at.strftime('%m/%d/%Y') %></td>
   </tr>
   <tr>
     <th>Action:</th>
     <td>
-      <%= link_to 'Edit', edit_production_item_path(@production_item) %> |
-      <%= link_to 'Back', production_items_path(production_formula_id: @production_item.production_formula_id) %>
+      <%= link_to 'Edit', edit_production_item_path(item) %> |
+      <%= link_to 'Back', production_items_path(production_formula_id: item.production_formula_id) %>
     </td>
   </tr>
 </table>

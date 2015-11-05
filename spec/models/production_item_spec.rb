@@ -9,6 +9,6 @@ RSpec.describe ProductionItem, type: :model do
 
   it { is_expected.to validate_presence_of(:item_master_id) }
   it { is_expected.to validate_presence_of(:production_formula_id) }
-  it { is_expected.to validate_uniqueness_of(:production_formula_id).scoped_to(:item_master_id) }
+  it { is_expected.to validate_uniqueness_of(:item_master_id).scoped_to(:production_formula_id) }
   it { is_expected.to validate_numericality_of(:quantity).only_integer }
 end
