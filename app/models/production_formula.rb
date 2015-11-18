@@ -12,4 +12,8 @@ class ProductionFormula < ActiveRecord::Base
   def tons
     production_items.to_a.sum { |item| item.tons }
   end
+
+  def components
+    production_items.to_a.sum { |item| item.components }
+  end
 end

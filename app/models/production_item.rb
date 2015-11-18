@@ -12,4 +12,9 @@ class ProductionItem < ActiveRecord::Base
   def tons
     quantity * item_master.weight / 2000
   end
+
+  def components
+    quantity * item_master.weight / master_formula.formula_components.to_a.sum { |formula| formula.blend_percentage * \
+                                                            (1 - formula.component_shrinkage.shrinkage) } / 2000
+  end
 end

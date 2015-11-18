@@ -25,7 +25,7 @@ class ProductionItemsController < ApplicationController
   end
 
   def destroy
-    item.destroy
+    item_delete
     respond_to do |format|
       format.html { redirect_to production_items_url(production_formula_id: item.production_formula_id), \
                     notice: 'Production Item was successfully destroyed.' }
@@ -45,6 +45,10 @@ class ProductionItemsController < ApplicationController
 
     def item_update
       UpdateItem.call(item_params.merge(id: item.id))
+    end
+
+    def item_delete
+      DeleteItem.call(item.attributes)
     end
 
     def item_params
@@ -83,5 +87,4 @@ class ProductionItemsController < ApplicationController
       @production_formula ||= params[:production_formula_id] ? ProductionFormula.find(params[:production_formula_id]) : \
                                                                ProductionFormula.find(params[:entry][:production_formula_id])
     end
-
 end

@@ -1,9 +1,13 @@
 class ProductionItemUpsertWorker
   include Sidekiq::Worker
 
-  def perform(production_item_id, total_week)
+  def perform(production_item_id, total_week, quantity)
     production_item = ProductionItem.find(production_item_id)
-    production_item.quantity = calculate_bags(production_item.item_master_id, total_week)
+    if total_week.nil?
+      production_item.quantity = quantity
+    else
+      production_item.quantity = calculate_bags(production_item.item_master_id, total_week)
+    end
     production_item.save!
     UpdateFormula.call(production_formula_id: production_item.production_formula_id)
   end

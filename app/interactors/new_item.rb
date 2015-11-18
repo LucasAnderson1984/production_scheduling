@@ -9,7 +9,7 @@ class NewItem
       context.production_item.save!
     end
     context.message = 'Production item was successfully created.'
-    ProductionItemUpsertWorker.perform_async(context.production_item.id, context.total_week)
+    ProductionItemUpsertWorker.perform_async(context.production_item.id, context.total_week, context.quantity)
   end
 
   protected

@@ -17,6 +17,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sass-rails', '~> 4.0'
 gem 'sidekiq'
 gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
+gem 'sinatra', require: false
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn'
 gem 'userstamp', git: 'https://github.com/kimkong/userstamp.git'
@@ -25,23 +26,27 @@ gem 'uuid'
 gem 'virtus'
 
 group :development do
+  gem 'byebug'
   gem 'capistrano', '~> 3.3.0'
   gem 'capistrano-rails'
   gem 'email_spec'
   gem 'letter_opener'
-end
-
-group :development, :test do
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
 end
 
+group :development, :test do
+end
+
 group :test do
-  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'codeclimate-test-reporter', require: nil
   gem 'database_cleaner'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'factory_girl_rails'
   gem 'faker'
   gem 'rspec-rails'
   gem 'rspec-its'
-  gem 'shoulda-matchers', require: false
+  gem 'rspec-sidekiq'
+  gem 'shoulda-matchers', '~> 3.0'
+  gem 'shoulda-kept-respond-with-content-type',
+      github: 'tinfoil/shoulda-kept-respond-with-content-type'
 end
